@@ -23,7 +23,10 @@ public class Main {
         }
         String startCol = map[0][0];
         int answer =0;
-        
+        if(map.[r][c].equals(startCol)){
+            System.out.println(0);
+            return 0;
+        }
         for(int i=1;i<r-2;i++){
             for(int j=1;j<c-2;j++){
                 if(!map[i][j].equals(startCol)){
