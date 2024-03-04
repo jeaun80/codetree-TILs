@@ -23,9 +23,9 @@ public class Main {
         }
         String startCol = map[0][0];
         int answer =0;
-        if(map.[r][c].equals(startCol)){
+        if(map[r-1][c-1].equals(startCol)){
             System.out.println(0);
-            return 0;
+            return ;
         }
         for(int i=1;i<r-2;i++){
             for(int j=1;j<c-2;j++){
