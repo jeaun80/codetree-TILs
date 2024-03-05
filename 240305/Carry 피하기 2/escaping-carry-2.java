@@ -15,7 +15,7 @@ public class Main {
         for(int i=0;i<n;i++){
             numbersArr[i] = Integer.parseInt(br.readLine());
         }
-        int answer =0;
+        int answer = -1;
 
         for(int i=0;i<n-2;i++){
             
@@ -24,7 +24,7 @@ public class Main {
 
 
                 int midanswer = con(numbersArr[i],numbersArr[j]);
-                if(midanswer==0){
+                if(midanswer==-1){
                     continue;
                 }
                 //System.out.println("mid = "+midanswer);
@@ -32,7 +32,7 @@ public class Main {
                     int rastanswer=con(midanswer,numbersArr[k]);
                     //System.out.println("mid = "+midanswer+" last = "+rastanswer);
 
-                    if(rastanswer==0){
+                    if(rastanswer==-1){
                         continue;
                     }
                     answer = Math.max(rastanswer,answer);
@@ -68,7 +68,7 @@ public class Main {
         sbj.reverse();
         String[] jNumStrArr = sbj.toString().split("");
 
-        int result =0;
+        int result =-1;
         for(int i=0;i<maxlen;i++){
             int n=0;
             if(i<len){
@@ -85,7 +85,7 @@ public class Main {
             }
             //System.out.println(n*Math.pow(10.0,i));
             if(n>=10){
-                result = 0;
+                result = -1;
                 break;
             }
             result += n*Math.pow(10.0,i);
