@@ -68,7 +68,7 @@ public class Main {
         sbj.reverse();
         String[] jNumStrArr = sbj.toString().split("");
 
-        int result =-1;
+        int result =0;
         for(int i=0;i<maxlen;i++){
             int n=0;
             if(i<len){
