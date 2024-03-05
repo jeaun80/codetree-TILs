@@ -12,12 +12,11 @@ public class Main {
         String[]inputStrArr = br.readLine().split("");
 
         int answer =0;
-
         for(int i=0;i<inputStrArr.length-2;i++){
             if(inputStrArr[i].equals("C")){
                 for(int j=i+1;j<inputStrArr.length-1;j++){
                     if(inputStrArr[j].equals("O")){
-                        for(int k = j+i;k<inputStrArr.length;k++){
+                        for(int k = j+1;k<inputStrArr.length;k++){
                             if(inputStrArr[k].equals("W")){
                                 answer++;
                             }
