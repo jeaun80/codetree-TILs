@@ -20,7 +20,7 @@ public class Main {
         for(int i=0;i<n-2;i++){
             
 
-            for(int j = 1;j<n-1;j++){
+            for(int j = i+1;j<n-1;j++){
 
 
                 int midanswer = con(numbersArr[i],numbersArr[j]);
@@ -28,7 +28,7 @@ public class Main {
                     continue;
                 }
                 //System.out.println("mid = "+midanswer);
-                for(int k=2;k<n;k++){
+                for(int k=j+1;k<n;k++){
                     int rastanswer=con(midanswer,numbersArr[k]);
                     //System.out.println("mid = "+midanswer+" last = "+rastanswer);
 
