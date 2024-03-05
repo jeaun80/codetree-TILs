@@ -19,7 +19,7 @@ public class Main {
         int answer = 0;
         for(int i=0;i<inputArr.length-2;i++){
             int midanswer = 0;
-            for(int j=i+1;j<inputArr.length;j++){
+            for(int j=i+2;j<inputArr.length;j++){
                 midanswer= inputArr[i]+inputArr[j];
                 answer = Math.max(midanswer,answer);
             }
