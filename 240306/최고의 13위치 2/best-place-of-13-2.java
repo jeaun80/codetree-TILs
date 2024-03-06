@@ -18,54 +18,34 @@ public class Main {
                 map[i][j] = Integer.parseInt(inputStrArr[j]);
             }
         }
-        int max =-1;
-        int ri = 0;
-        int rj = 0;
-        int answer =0;
+
+        //하나 자리 정해두고 하는 이동하면서 총합을 더한느식으로 해서 가장큰값
+
+        int max = -1;
+
+        int checkmap[][] = new int[n][n];
         for(int i=0;i<n;i++){
             for(int j=0;j<n-2;j++){
-                int a1= map[i][j];
-                int a2= map[i][j+1];
-                int a3= map[i][j+2];
+                //하나자리정하기
+                int firstSum = map[i][j]+map[i][j+1]+map[i][j+2];
+                checkmap[i][j]= -1;
+                checkmap[i][j+1] = -1;
+                checkmap[i][j+2] = -1;
+                for(int k =0;k<n;k++){
+                    for (int r = 0;r<n-2;r++){
 
-                if(a1== -1 || a2== -1 || a3 ==-1){
-                    continue;
+                        if(checkmap[k][r]== -1 || checkmap[k][r+1] ==-1 || checkmap[k][r+2]==-1){
+                            continue;
+                        }
+                        int lastSum = map[k][r]+map[k][r+1]+map[k][r+2];
+                        max = Math.max(firstSum+lastSum,max);
+                    }
                 }
-                int sum = (a1+a2+a3);
-                if(sum>max){
-                    max = sum;
-                    ri = i;
-                    rj = j;
-                }
+                checkmap[i][j]= 0;
+                checkmap[i][j+1] = 0;
+                checkmap[i][j+2] = 0;
             }
         }
-        map[ri][rj] = -1;
-        map[ri][rj+1] = -1;
-        map[ri][rj+2] = -1;
-        answer+=max;
-        max = -1;
-        ri = 0;
-        rj = 0;
-        
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n-2;j++){
-                int a1= map[i][j];
-                int a2= map[i][j+1];
-                int a3= map[i][j+2];
-
-                if(a1== -1 || a2== -1 || a3 ==-1){
-                    continue;
-                }
-                int sum = (a1+a2+a3);
-                if(sum>max){
-                    max = sum;
-                    ri = i;
-                    rj = j;
-                }
-            }
-        }
-        answer+=max;
-        System.out.println(answer);
-        // 여기에 코드를 작성해주세요.
+        System.out.println(max);
     }
 }
