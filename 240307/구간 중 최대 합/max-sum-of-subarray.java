@@ -23,7 +23,7 @@ public class Main {
 
         for(int i=0;i<n-k+1;i++){
             int midAnswer = 0;
-            for(int j=i;j<i+3;j++){
+            for(int j=i;j<i+k;j++){
                 midAnswer+=map[j];
             }
             maxValue = Math.max(midAnswer,maxValue);
