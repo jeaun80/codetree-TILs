@@ -26,14 +26,14 @@ public class Main {
 
         for(int i=1;i<min-k+1;i++){
             int midanswer =0;
-            for(int j=i;j<=k+1;j++){
-                if(map[j]==null){
+            for(int j=0;j<=k;j++){
+                if(map[i+j]==null){
                     continue;
                 }
-                if(map[j].equals("G")){
+                if(map[i+j].equals("G")){
                     midanswer+= 1;
                 }
-                else if(map[j].equals("H")){
+                else if(map[i+j].equals("H")){
                     midanswer+=2;
                 }
             }
