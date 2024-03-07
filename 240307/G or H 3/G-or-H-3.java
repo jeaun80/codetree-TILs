@@ -24,7 +24,7 @@ public class Main {
 
         int answer =0;
 
-        for(int i=1;i<min-k+1;i++){
+        for(int i=1;i<10000-k+1;i++){
             int midanswer =0;
             for(int j=0;j<=k;j++){
                 if(map[i+j]==null){
