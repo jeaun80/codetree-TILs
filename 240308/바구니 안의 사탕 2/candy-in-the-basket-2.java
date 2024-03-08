@@ -12,17 +12,28 @@ public class Main {
 
         int n = Integer.parseInt(sizeStrArr[0]);
         int k = Integer.parseInt(sizeStrArr[1]);
-
-        int []map = new int[100];
+//n이 80 k가 72일때 즉 인덱스가 넘을때 발생 
+        int []map = new int[101];
         for(int i=0;i<n;i++){
 
             String[]inputStrArr = br.readLine().split(" ");
             map[Integer.parseInt(inputStrArr[1])] += Integer.parseInt(inputStrArr[0]);
         }
         int answer = 0;
-        for(int i=k;i<99-k;i++){
+
+
+        for(int i=k;i<100;i++){
             int midAnswer =0;
-            for(int j = i-k;j<=i+k;j++){
+            int nextRange = i+k;
+            if(nextRange>100){
+                nextRange=100;
+            }
+            int beforeRange = i-k;
+            if(beforeRange<0){
+                beforeRange = 0;
+            }
+
+            for(int j = beforeRange;j<=nextRange;j++){
                 midAnswer+=map[j];
             }
             answer = Math.max(midAnswer,answer);
