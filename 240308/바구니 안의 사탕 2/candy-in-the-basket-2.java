@@ -14,14 +14,19 @@ public class Main {
         int k = Integer.parseInt(sizeStrArr[1]);
 //n이 80 k가 72일때 즉 인덱스가 넘을때 발생 
         int []map = new int[101];
+        int answer = 0;
+
         for(int i=0;i<n;i++){
 
             String[]inputStrArr = br.readLine().split(" ");
             map[Integer.parseInt(inputStrArr[1])] += Integer.parseInt(inputStrArr[0]);
+            answer+=Integer.parseInt(inputStrArr[0]);
         }
-        int answer = 0;
-
-
+        if(k>=51){
+            System.out.println(answer);
+            return;
+        }
+        answer=0;
         for(int i=k;i<100;i++){
             int midAnswer =0;
             int nextRange = i+k;
