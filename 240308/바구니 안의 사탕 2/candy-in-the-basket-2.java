@@ -17,7 +17,7 @@ public class Main {
         for(int i=0;i<n;i++){
 
             String[]inputStrArr = br.readLine().split(" ");
-            map[Integer.parseInt(inputStrArr[1])] = Integer.parseInt(inputStrArr[0]);
+            map[Integer.parseInt(inputStrArr[1])] += Integer.parseInt(inputStrArr[0]);
         }
         int answer = 0;
         for(int i=k;i<99-k;i++){
