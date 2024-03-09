@@ -15,6 +15,10 @@ public class Main {
 
         int[][]map = new int[n][n];
 
+        if(n==1){
+            System.out.println(1);
+            return;
+        }
         for(int i=0;i<n;i++){
             String[] inputMapArr = br.readLine().split(" ");
 
