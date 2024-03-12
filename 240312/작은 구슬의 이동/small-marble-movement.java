@@ -38,19 +38,20 @@ public class Main {
         }
         // 01 상하 23 좌우
 
-        while(t!=0){
+        for(int i=0;i<t;i++){
+
 
             int nx = r+dx[dir];
             int ny = c+dy[dir];
+
             if(nx>0 && ny>0 && nx<=n&& ny<=n){
-                t--;
-                r = nx;
+                r= nx;
                 c = ny;
             }
             else{
-                t--;
                 dir= (dir+2+4)%4;
             }
+            
         }
 
         System.out.println(r+" "+c);
