@@ -63,8 +63,8 @@ public class Main {
                     }
                     for(int k = 0;k<2;k++){
                         index = r+k;
-                        int nx = i+dx[index];
-                        int ny = j+dy[index];
+                        int nx = i+gx[index];
+                        int ny = j+gy[index];
                         if(nx>=0 && ny>=0 && nx<n && ny<m){
                             midsum+=map[nx][ny];
                         }
