@@ -56,19 +56,24 @@ public class Main {
                 for(int r=0;r<2;r++){
                     int midsum=map[i][j];
                     boolean flag = true;
-
                     int index =0;
-                    if(r==1){
-                        index = 1;
-                    }
                     for(int k = 0;k<2;k++){
-                        index = r+k;
+                        if(r==1){
+                            index=r+k+1;
+                        }
+                        else{
+                            index=k;
+                        }
                         int nx = i+gx[index];
                         int ny = j+gy[index];
+                        //System.out.println("범위 안 r = "+r+ " "+i+" "+j+" index = "+index+" nx = "+nx+" ny = "+ny);
+
                         if(nx>=0 && ny>=0 && nx<n && ny<m){
+
                             midsum+=map[nx][ny];
                         }
                         else{
+                            //System.out.println(i+" "+j+" index = "+index);
                             flag =false;
                             break;
                         }
@@ -77,6 +82,7 @@ public class Main {
                         answer = Math.max(midsum,answer);
                     }
                 }
+                //System.out.println(i+ " "+j+ " "+ answer);
                 
             }
         }
