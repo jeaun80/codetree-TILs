@@ -28,10 +28,10 @@ public class Main {
             dir =0;
         }
         else if(d.equals("D")){
-            dir = 1;
+            dir = 2;
         }
         else if(d.equals("R")){
-            dir = 2;
+            dir = 1;
         }
         else if(d.equals("L")){
             dir =3;
