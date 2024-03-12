@@ -19,7 +19,7 @@ public class Main {
 
             if(commandArr[i].equals("R")){
                 dir++;
-                if(dir%4==0){
+                if(dir==4){
                     dir = 0;
                 }
             }
@@ -29,7 +29,7 @@ public class Main {
                     dir = 3;
                 }
             }
-            else{
+            else if(commandArr[i].equals("F")){
                 //System.out.println(dir);
                 x+= dx[dir];
                 y+= dy[dir];
