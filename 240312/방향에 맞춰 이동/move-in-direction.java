@@ -48,14 +48,9 @@ public class Main {
 
                 nx = x+dx[3]*distanceArr[i];
                 ny = y+dy[3]*distanceArr[i];
-            }
-
-            if(nx>=0 && ny>=0 && nx<101 && ny<101){
-                
+            }                
                 x = nx;
                 y = ny;
-
-            }
         }
         System.out.println(y+" "+x);
         // 여기에 코드를 작성해주세요.
