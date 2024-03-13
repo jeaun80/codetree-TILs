@@ -39,12 +39,12 @@ public class Main {
                     firN = 1;
                     secN = i-1;
                 }
-                
                 for(int seci =0;seci<secN;seci++){
                     nx = i;
                     ny = j;
                     midsum =map[i][j];
                     for(int movei = 0;movei<4;movei++){
+
                         if(movei==0){
                             //System.out.println(firN);
                             for(int r = 0;r<firN;r++){
@@ -61,18 +61,14 @@ public class Main {
                                 nx+=dx[movei];
                                 ny+=dy[movei];
                             //  System.out.println("nx = "+nx+" ny = "+ny);
-
                                 midsum+=map[nx][ny];
                             }
-
                         }
                         if(movei==2){
-
                             for(int r = 0;r<firN;r++){
                                 nx +=dx[movei];
                                 ny +=dy[movei];
                                 //System.out.println("nx = "+nx+" ny = "+ny);
-
                                 midsum+=map[nx][ny];
                             }
 
@@ -86,7 +82,10 @@ public class Main {
                             }
 
                         }
-                        secN--;
+                        if(secN>1){
+                            secN--;
+
+                        }
                     }
                     answer = Math.max(midsum,answer);
                     if(i!=n-1){
