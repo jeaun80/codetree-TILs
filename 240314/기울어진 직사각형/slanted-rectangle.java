@@ -39,7 +39,8 @@ public class Main {
                     firN = 1;
                     secN = i-1;
                 }
-                for(int seci =0;seci<secN;seci++){
+                int secR = secN;
+                for(int seci =0;seci<secR;seci++){
                     nx = i;
                     ny = j;
                     midsum =0;
@@ -86,10 +87,11 @@ public class Main {
                         secN--;
                     }
                     answer = Math.max(midsum,answer);
-                    if(i!=n-1){
-                        j = n-2;
-                        break;
-                    }
+
+                }
+                if(i!=n-1){
+                    j = n-2;
+                    break;
                 }
                 
             }
