@@ -19,7 +19,7 @@ public class Main {
         }
 
         int maxProfit = 0;
-        for (int K = 1; K <= n; K++) {
+        for (int K = 0; K <= n; K++) {
             int profit = calculateProfit(grid, m, K);
             maxProfit = Math.max(maxProfit, profit);
         }
@@ -30,12 +30,11 @@ public class Main {
     public static int calculateProfit(int[][] grid, int m, int K) {
         int n = grid.length;
         int profit = 0;
-        int ak47 = K-1;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int diamondSum = 0;
-                for (int a = -ak47; a <= ak47; a++) {
-                    for (int b = -ak47; b <= ak47; b++) {
+                for (int a = -K; a <= K; a++) {
+                    for (int b = -K; b <= K; b++) {
                         if (isValid(i + a, j + b, n) && Math.abs(a) + Math.abs(b) <= K) {
                             diamondSum += grid[i + a][j + b];
                             if(i==2 && j==4){
@@ -48,7 +47,7 @@ public class Main {
                         }
                     }
                 }
-                int cost = (int)Math.pow(ak47, 2) + (int)Math.pow(ak47 + 1, 2);
+                int cost = (int)Math.pow(K, 2) + (int)Math.pow(K + 1, 2);
                 if(diamondSum==3){
                    // System.out.println("cost = "+ cost+" K =  "+K);
                 }
