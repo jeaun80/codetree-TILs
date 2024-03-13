@@ -28,23 +28,22 @@ public class Main {
 
         for(int i = 2;i<n;i++){
             for(int j= 1;j<n-1;j++){//시작점 밑꼭지점으로 설정, 맵안에서 시작범위 설정
-                int midsum = map[i][j];
+                int midsum =0;
 
                 int nx =i;
                 int ny =j;
                 
                 int firN = i-j;
                 int secN = i-firN;
-                if(j==n-2){
+                if(j==n-2 && i>n-1){
                     firN = 1;
                     secN = i-1;
                 }
                 for(int seci =0;seci<secN;seci++){
                     nx = i;
                     ny = j;
-                    midsum =map[i][j];
+                    midsum =0;
                     for(int movei = 0;movei<4;movei++){
-
                         if(movei==0){
                             //System.out.println(firN);
                             for(int r = 0;r<firN;r++){
@@ -60,7 +59,6 @@ public class Main {
                             for(int r= 0;r<secN;r++){
                                 nx+=dx[movei];
                                 ny+=dy[movei];
-                            //  System.out.println("nx = "+nx+" ny = "+ny);
                                 midsum+=map[nx][ny];
                             }
                         }
@@ -75,17 +73,17 @@ public class Main {
                         }
                         if(movei==3){
                             //System.out.println("dissss");
-                            for(int r= 0;r<secN-1;r++){
+                            for(int r= 0;r<secN;r++){
                                 nx+=dx[movei];
                                 ny+=dy[movei];
                                 midsum+=map[nx][ny];
                             }
 
                         }
-                        if(secN>1){
-                            secN--;
+                    }
 
-                        }
+                    if(secN>1){
+                        secN--;
                     }
                     answer = Math.max(midsum,answer);
                     if(i!=n-1){
