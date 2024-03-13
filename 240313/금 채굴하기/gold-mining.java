@@ -38,16 +38,20 @@ public class Main {
                     for (int b = -ak47; b <= ak47; b++) {
                         if (isValid(i + a, j + b, n) && Math.abs(a) + Math.abs(b) <= K) {
                             diamondSum += grid[i + a][j + b];
-
-                            if(i==2 && j==2 && K==6 &&diamondSum>24){
-                                //System.out.println("diamondSum = "+diamondSum+" i+a = "+i+a+" j+a ="+j+b+" k = "+K);
+                            if(i==2 && j==4){
+                              //System.out.println("diamondSum = "+diamondSum+" i+a = "+i+a+" j+a ="+j+b+" k = "+K);
 
                             }
+
+                            
 
                         }
                     }
                 }
-                int cost = (int)Math.pow(K, 2) + (int)Math.pow(K + 1, 2);
+                int cost = (int)Math.pow(ak47, 2) + (int)Math.pow(ak47 + 1, 2);
+                if(diamondSum==3){
+                   // System.out.println("cost = "+ cost+" K =  "+K);
+                }
                 if (diamondSum * m >= cost) {
                     if(diamondSum>30){
 
