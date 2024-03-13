@@ -40,54 +40,62 @@ public class Main {
                     secN = i-1;
                 }
                 int secR = secN;
+                int firR = firN;
                 for(int seci =0;seci<secR;seci++){
-                    nx = i;
-                    ny = j;
-                    midsum =0;
-                    for(int movei = 0;movei<4;movei++){
-                        if(movei==0){
-                            //System.out.println(firN);
-                            for(int r = 0;r<firN;r++){
-                                nx +=dx[movei];
-                                ny +=dy[movei];
-                            // System.out.println("nx = "+nx+" ny = "+ny);
+                    firN = firR;
+                    
+                    for(int firi=0;firi<firR;firi++){
+                        nx = i;
+                        ny = j;
+                        midsum =0;
+                        for(int movei = 0;movei<4;movei++){
+                            if(movei==0){
+                                //System.out.println(firN);
+                                for(int r = 0;r<firN;r++){
+                                    nx +=dx[movei];
+                                    ny +=dy[movei];
+                                // System.out.println("nx = "+nx+" ny = "+ny);
 
-                                midsum+=map[nx][ny];
+                                    midsum+=map[nx][ny];
+                                }
+                            }
+                            if(movei==1){
+                                //System.out.println("diss");
+                                for(int r= 0;r<secN;r++){
+                                    nx+=dx[movei];
+                                    ny+=dy[movei];
+                                    midsum+=map[nx][ny];
+                                }
+                            }
+                            if(movei==2){
+                                for(int r = 0;r<firN;r++){
+                                    nx +=dx[movei];
+                                    ny +=dy[movei];
+                                    //System.out.println("nx = "+nx+" ny = "+ny);
+                                    midsum+=map[nx][ny];
+                                }
+
+                            }
+                            if(movei==3){
+                                //System.out.println("dissss");
+                                for(int r= 0;r<secN;r++){
+                                    nx+=dx[movei];
+                                    ny+=dy[movei];
+                                    midsum+=map[nx][ny];
+                                }
+
                             }
                         }
-                        if(movei==1){
-                            //System.out.println("diss");
-                            for(int r= 0;r<secN;r++){
-                                nx+=dx[movei];
-                                ny+=dy[movei];
-                                midsum+=map[nx][ny];
-                            }
-                        }
-                        if(movei==2){
-                            for(int r = 0;r<firN;r++){
-                                nx +=dx[movei];
-                                ny +=dy[movei];
-                                //System.out.println("nx = "+nx+" ny = "+ny);
-                                midsum+=map[nx][ny];
-                            }
-
-                        }
-                        if(movei==3){
-                            //System.out.println("dissss");
-                            for(int r= 0;r<secN;r++){
-                                nx+=dx[movei];
-                                ny+=dy[movei];
-                                midsum+=map[nx][ny];
-                            }
-
+                        answer = Math.max(midsum,answer);
+                        if(firN>1){
+                            firN--;
                         }
                     }
 
                     if(secN>1){
                         secN--;
                     }
-                    answer = Math.max(midsum,answer);
-
+                    
                 }
                 if(i!=n-1){
                     j = n-2;
