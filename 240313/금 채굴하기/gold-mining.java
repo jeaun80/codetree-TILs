@@ -19,7 +19,7 @@ public class Main {
         }
 
         int maxProfit = 0;
-        for (int K = 0; K < n; K++) {
+        for (int K = 1; K <= n; K++) {
             int profit = calculateProfit(grid, m, K);
             maxProfit = Math.max(maxProfit, profit);
         }
