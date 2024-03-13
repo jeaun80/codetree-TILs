@@ -34,19 +34,15 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int diamondSum = 0;
-                boolean isValidDiamond = true;
                 for (int a = -K; a <= K; a++) {
                     for (int b = -K; b <= K; b++) {
                         if (isValid(i + a, j + b, n) && Math.abs(a) + Math.abs(b) <= K) {
                             diamondSum += grid[i + a][j + b];
-                            if (grid[i + a][j + b] == 0) {
-                                isValidDiamond = false;
-                            }
                         }
                     }
                 }
                 int cost = (int)Math.pow(K, 2) + (int)Math.pow(K + 1, 2);
-                if (isValidDiamond && diamondSum * m >= cost) {
+                if (diamondSum * m >= cost) {
                     profit = Math.max(profit, diamondSum);
                 }
             }
