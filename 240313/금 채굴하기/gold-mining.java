@@ -30,19 +30,28 @@ public class Main {
     public static int calculateProfit(int[][] grid, int m, int K) {
         int n = grid.length;
         int profit = 0;
-
+        int ak47 = K-1;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int diamondSum = 0;
-                for (int a = -K; a <= K; a++) {
-                    for (int b = -K; b <= K; b++) {
+                for (int a = -ak47; a <= ak47; a++) {
+                    for (int b = -ak47; b <= ak47; b++) {
                         if (isValid(i + a, j + b, n) && Math.abs(a) + Math.abs(b) <= K) {
                             diamondSum += grid[i + a][j + b];
+
+                            if(i==2 && j==2 && K==6 &&diamondSum>24){
+                                //System.out.println("diamondSum = "+diamondSum+" i+a = "+i+a+" j+a ="+j+b+" k = "+K);
+
+                            }
+
                         }
                     }
                 }
                 int cost = (int)Math.pow(K, 2) + (int)Math.pow(K + 1, 2);
                 if (diamondSum * m >= cost) {
+                    if(diamondSum>30){
+
+                    }
                     profit = Math.max(profit, diamondSum);
                 }
             }
