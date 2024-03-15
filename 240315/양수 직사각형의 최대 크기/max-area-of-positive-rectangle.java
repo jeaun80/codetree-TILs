@@ -26,7 +26,7 @@ public class Main {
         
         //시작점찾기
 
-        int answer =0;
+        int answer =-1;
         for(int start_i=0;start_i<n;start_i++){
             for(int start_j=0;start_j<m;start_j++){
 
