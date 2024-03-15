@@ -25,8 +25,8 @@ public class Main {
         for(int i=0;i<n;i++){
             int starti = map[i][0];
             int endi = map[i][1];
-            for(int j= i+1;j<n;j++){
-                if(starti<map[j][0] && endi>map[j][1]){
+            for(int j= 0;j<n;j++){
+                if(starti>map[j][0] && endi<map[j][1]){
                     answerList[i] = 1;
                     answerList[j] = 1;
                 }
