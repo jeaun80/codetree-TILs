@@ -33,15 +33,15 @@ public class Main {
                     int sum = 0;
                     if(ax==bx){
                         if(ay==cy){
-                            sum = Math.abs(ay-by)*Math.abs(cx-ax)*2;
+                            sum = Math.abs(ay-by)*Math.abs(cx-ax);
 
                         }
                         else if(by==cy){
-                            sum = Math.abs(ay-by)*Math.abs(cx-bx)*2;
+                            sum = Math.abs(ay-by)*Math.abs(cx-bx);
 
                         }
                     }
-                    else if(ax==cx && (ay==by || cy == by)){
+                    else if(ax==cx ){
                         if(ay==by){
                             sum = Math.abs(ay-cy)*Math.abs(bx-ax);
                         }
@@ -51,7 +51,7 @@ public class Main {
                         }
 
                     }
-                    else if(bx==cx && (by==ay || cy ==ay)){
+                    else if(bx==cx){
                         if(ay==cy){
                             sum = Math.abs(cy-by)*Math.abs(cx-ax);
 
