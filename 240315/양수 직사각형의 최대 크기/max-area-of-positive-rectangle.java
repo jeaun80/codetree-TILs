@@ -35,7 +35,7 @@ public class Main {
                     for(int size_j=start_j;size_j<m;size_j++){
                         int sum =0;
                         //사각형의 양수계산
-                        if(size_i>start_i && size_j>start_j){
+                        if(size_i>=start_i && size_j>=start_j){
                             sum = getRactSum(start_i,start_j,size_i,size_j);
                         }
                         if(sum>0){
@@ -47,7 +47,6 @@ public class Main {
                 }
             }
         }
-
         System.out.println(answer);
         // 여기에 코드를 작성해주세요.
     }
