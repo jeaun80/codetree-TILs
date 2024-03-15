@@ -76,7 +76,7 @@ public class Main {
                                                 if(checkMap[a][b]){
                                                     //System.out.println(a+" "+b);
                                                     
-                                                    //checkFalg = true;
+                                                    checkFalg = false;
                                                     break;
                                                 }
                                                 else{
@@ -90,10 +90,6 @@ public class Main {
                                             }
                                         }
                                         if(checkFalg){
-                                            //System.out.println("f_i = "+i+" f_j "+j+ " s_i = "+s_i+" s_j = "+s_j);
-                                            //System.out.println("f_boxsize = "+boxi+" ,"+ boxj +  " s_boxsize = "+s_boxi+", "+s_boxj);
-                                            //if(s_i==1 && s_j==3 && s_boxi==2 && s_boxj==0)System.out.println("f_sum = "+f_sum+ " s_sum = "+s_sum);
-
                                             answer = Math.max(answer,s_sum+f_sum);
                                         }
                                     }
