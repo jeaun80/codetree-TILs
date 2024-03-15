@@ -39,6 +39,8 @@ public class Main {
                             sum = getRactSum(start_i,start_j,size_i,size_j);
                         }
                         if(sum>0){
+                            //System.out.println(start_i+" "+start_j+"      "+size_i+" "+size_j);
+                            //System.out.println((Math.abs(size_i-start_i)+1)*(Math.abs(size_j-start_j)+1));
                             answer = Math.max(answer, (Math.abs(size_i-start_i)+1)*(Math.abs(size_j-start_j)+1));
                         }
                     }
@@ -52,8 +54,8 @@ public class Main {
 
     public static int getRactSum(int si,int sj,int fi,int fj){
         int sum = 0;
-        for(int i=si;i<fi;i++){
-            for(int j= sj;j<fj;j++){
+        for(int i=si;i<=fi;i++){
+            for(int j= sj;j<=fj;j++){
                 if(map[i][j]>0){
                     sum+=map[i][j];
                 }
