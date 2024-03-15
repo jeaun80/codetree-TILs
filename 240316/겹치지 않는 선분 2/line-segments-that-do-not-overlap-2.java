@@ -17,7 +17,7 @@ public class Main {
 
         }
         if(n==1){
-            System.out.println(0);
+            System.out.println(1);
             return;
         }
         int answer = n;
