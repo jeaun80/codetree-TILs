@@ -30,6 +30,9 @@ public class Main {
                 else{
                     p-=gift;
                 }
+                if(p==0){
+                    answer = Math.max(answer,j+1);
+                }
             }
         }
         System.out.println(answer);
