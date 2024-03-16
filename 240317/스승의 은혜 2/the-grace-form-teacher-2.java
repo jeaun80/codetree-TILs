@@ -24,16 +24,14 @@ public class Main {
                 if(i==j){
                     gift/=2;
                 }
-                if(p<gift){
-                    answer = Math.max(answer,j);
+                p-=gift;
+                if(p<0){
+                    answer = Math.max(j,answer);
                 }
-                else{
-                    p-=gift;
-
-                    if(p==0){
-                        answer = Math.max(answer,j+1);
-                    }
-                }
+            }
+            if(p>=0){
+                answer = n;
+                break;
             }
         }
         System.out.println(answer);
