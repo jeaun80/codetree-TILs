@@ -27,6 +27,7 @@ public class Main {
                 p-=gift;
                 if(p<0){
                     answer = Math.max(j,answer);
+                    break;
                 }
             }
             if(p>=0){
