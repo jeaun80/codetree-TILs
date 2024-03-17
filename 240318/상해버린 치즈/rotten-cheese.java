@@ -45,7 +45,7 @@ public class Main {
 
             for(int i=0;i<eatRecordNum;i++){
                 
-                if(sickperson==eatRecordMap[i][0] && sicktime>eatRecordMap[i][2]){
+                if(sickperson==eatRecordMap[i][0] && (sicktime==eatRecordMap[i][2]+1)){
                     int sickCheeze = eatRecordMap[i][1];
                     sickCheezeSet.add(sickCheeze);
                 }
