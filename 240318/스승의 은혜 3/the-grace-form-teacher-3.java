@@ -34,7 +34,7 @@ public class Main {
         //input finish
 
         //sort
-        Collections.sort(wishList,new Comparator<wish>(){
+        /*Collections.sort(wishList,new Comparator<wish>(){
             @Override
             public int compare(wish o1,wish o2){
                 if((o1.wishPrice+o1.shipping)==(o2.wishPrice+o2.shipping)){
@@ -45,6 +45,7 @@ public class Main {
                 }
             }
         });
+        */
         int answer =0;
 
         for(int coupon=0;coupon<studentNum;coupon++){
@@ -63,17 +64,26 @@ public class Main {
             
             Collections.sort(list);
 
+
             for(int st = 0;st<studentNum;st++){
                 mPrcie-=list.get(st);
                 if(mPrcie<0){
                     answer = Math.max(answer,st);
                 }
+                if(mPrcie==0 && st==studentNum-1){
+                    answer = studentNum;
+                    break;
+                }
+
             }
 
             
         }
-        System.out.println(answer);
+        //if(answer ==0){
+         //   answer = studentNum;
+        //}
 
+        System.out.println(answer);
         // 여기에 코드를 작성해주세요.
     }
 }
