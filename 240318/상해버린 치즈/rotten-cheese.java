@@ -51,17 +51,17 @@ public class Main {
                 }
             }
         }
-
-
+        int answer = 0;
         for(int sickCheeze:sickCheezeSet){
             for(int i=0;i<eatRecordNum;i++){
                 if(sickCheeze==eatRecordMap[i][1]){
                     sickPersonSet.add(eatRecordMap[i][0]);
                 }
             }
+            answer = Math.max(sickPersonSet.size(),answer);
+            sickPersonSet.clear();
         }
-
-        System.out.println(sickPersonSet.size());
+        System.out.println(answer);
 
 
         // 여기에 코드를 작성해주세요.
