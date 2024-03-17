@@ -45,7 +45,7 @@ public class Main {
 
             for(int i=0;i<eatRecordNum;i++){
                 
-                if(sickperson==eatRecordMap[i][0] && (sicktime==eatRecordMap[i][2]+1)){
+                if(sickperson==eatRecordMap[i][0] && (sicktime>eatRecordMap[i][2])){
                     int sickCheeze = eatRecordMap[i][1];
                     sickCheezeSet.add(sickCheeze);
                 }
@@ -53,13 +53,22 @@ public class Main {
         }
         int answer = 0;
         for(int sickCheeze:sickCheezeSet){
+            sickPersonSet = new HashSet<>();
+            boolean flag = false;
             for(int i=0;i<eatRecordNum;i++){
                 if(sickCheeze==eatRecordMap[i][1]){
                     sickPersonSet.add(eatRecordMap[i][0]);
                 }
             }
-            answer = Math.max(sickPersonSet.size(),answer);
-            sickPersonSet.clear();
+            for(int i=0;i<sickRecordNum;i++){
+                if(!sickPersonSet.contains(sickRecordMap[i][0])){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                answer = Math.max(sickPersonSet.size(),answer);
+            }
         }
         System.out.println(answer);
 
