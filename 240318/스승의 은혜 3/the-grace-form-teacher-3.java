@@ -63,21 +63,20 @@ public class Main {
             }
             
             Collections.sort(list);
-
-
-            for(int st = 0;st<studentNum;st++){
-                mPrcie-=list.get(st);
-                if(mPrcie<0){
-                    answer = Math.max(answer,st);
-                }
-                if(mPrcie==0 && st==studentNum-1){
-                    answer = studentNum;
+            int sum =0;
+            for(int i=0;i<studentNum;i++){
+                sum+=list.get(i);
+                //System.out.println(list.get(i));
+                if(sum>price){
+                    answer = Math.max(answer,i);
                     break;
                 }
-
             }
 
-            
+            if(sum==price){
+                answer = studentNum;
+            }
+            //System.out.println(answer);  
         }
         //if(answer ==0){
          //   answer = studentNum;
