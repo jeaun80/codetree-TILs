@@ -37,13 +37,20 @@ public class Main {
         Collections.sort(wishList,new Comparator<wish>(){
             @Override
             public int compare(wish o1,wish o2){
-                return o1.wishPrice-o2.wishPrice;
+                if((o1.wishPrice+o1.shipping)==(o2.wishPrice+o2.shipping)){
+                    return o2.wishPrice-o1.wishPrice;
+                }
+                else{
+                    return (o1.wishPrice+o1.shipping) - (o2.wishPrice+o2.shipping);
+                }
             }
         });
         int answer =0;
 
         for(int coupon=0;coupon<studentNum;coupon++){
             int mPrcie=price;
+
+            List<Integer>list = new ArrayList<>();
             for(int st=0;st<studentNum;st++){//가격게산
                 int midprice = wishList.get(st).wishPrice;
                 int shipping = wishList.get(st).shipping;
@@ -51,12 +58,18 @@ public class Main {
                     midprice/=2;
                 }
                 int wishPrice = midprice+shipping;
+                list.add(wishPrice);
+            }
+            
+            Collections.sort(list);
 
-                mPrcie-=wishPrice;
+            for(int st = 0;st<studentNum;st++){
+                mPrcie-=list.get(st);
                 if(mPrcie<0){
                     answer = Math.max(answer,st);
                 }
             }
+
             
         }
         System.out.println(answer);
