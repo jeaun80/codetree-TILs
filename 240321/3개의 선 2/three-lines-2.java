@@ -1,51 +1,84 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
-
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(br.readLine());
-
-        int map[][] = new int[n][2];
-        Set<Integer> set = new HashSet<>();
-
-        for(int i=0;i<n;i++){
-
-            String[]inputStrArr = br.readLine().split(" ");
-            map[i][0] = Integer.parseInt(inputStrArr[0]);
-            map[i][1] = Integer.parseInt(inputStrArr[1]);
-            set.add(map[i][0]);
-            set.add(map[i][1]);
-        }
-        int answer = 1;
-        for(int i :set){
-            for(int j : set){ 
-                for(int k : set){
-                    boolean flag = false;
-                    for(int s = 0;s<n;s++){
-                        if(map[s][0]!=i && map[s][0]!=j && map[s][0]!=k && map[s][1]!=i && map[s][1]!=j && map[s][1]!=k ){
-                            flag = true;
-                        }
-                        if(flag){
-                            break;
-                        }
-                    }
-                    if(!flag){
-                        System.out.println(answer);
-                        return;
-                    }
-                }
-            }
-        }
-        System.out.println(0);
-
-
-
-
+    public static final int MAX_X = 10;
+    public static final int MAX_N = 20;
     
-        // 여기에 코드를 작성해주세요.
+    public static int n;
+    public static int[] x = new int[MAX_N];
+    public static int[] y = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // 입력
+        n = sc.nextInt();
+
+        for(int i = 0; i < n; i++) {
+            x[i] = sc.nextInt();
+            y[i] = sc.nextInt();
+        }
+
+        int ans = 0;
+
+        // 모든 직선에 대해 전부 시도해 봅니다.
+        for(int i = 0; i <= MAX_X; i++)
+            for(int j = 0; j <= MAX_X; j++)
+                for(int k = 0; k <= MAX_X; k++) {
+                    // success : 직선 3개로 모든 점을 지나게 할 수 있으면 true
+                    boolean success = true;
+                    // x축에 평행한 직선 3개로
+                    // 모든 점을 지나게 할 수 있는 경우
+                    for(int l = 0; l < n; l++) {
+                        // 해당 점이 직선에 닿으면 넘어갑니다
+                        if(x[l] == i || x[l] == j || x[l] == k)
+                            continue;
+                        
+                        success = false;
+                    }
+                    if(success)
+                        ans = 1;
+
+                    // x축에 평행한 직선 2개와 y축에 평행한 직선 1개로
+                    // 모든 점을 지나게 할 수 있는 경우
+                    success = true;
+                    for(int l = 0; l < n; l++) {
+                        // 해당 점이 직선에 닿으면 넘어갑니다
+                        if(x[l] == i || x[l] == j || y[l] == k)
+                            continue;
+                        
+                        success = false;
+                    }
+                    if(success)
+                        ans = 1;
+                    
+                    // x축에 평행한 직선 1개와 y축에 평행한 직선 2개로
+                    // 모든 점을 지나게 할 수 있는 경우
+                    success = true;
+                    for(int l = 0; l < n; l++) {
+                        // 해당 점이 직선에 닿으면 넘어갑니다
+                        if(x[l] == i || y[l] == j || y[l] == k)
+                            continue;
+                        
+                        success = false;
+                    }
+                    if(success)
+                        ans = 1;
+                    
+                    // y축에 평행한 직선 3개로
+                    // 모든 점을 지나게 할 수 있는 경우
+                    success = true;
+                    for(int l = 0; l < n; l++) {
+                        // 해당 점이 직선에 닿으면 넘어갑니다
+                        if(y[l] == i || y[l] == j || y[l] == k)
+                            continue;
+                        
+                        success = false;
+                    }
+                    if(success)
+                        ans = 1;
+                    
+                }
+
+        System.out.print(ans);
     }
 }
