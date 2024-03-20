@@ -33,8 +33,8 @@ public class Main {
         }
         for(int i=0;i<3;i++){
             set.add(map[0][i]);
-            set.add(map[0][i]);
-            set.add(map[0][i]);
+            set.add(map[1][i]);
+            set.add(map[2][i]);
             if(set.size()==2){
                 answer++;
             }
