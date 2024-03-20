@@ -22,7 +22,7 @@ public class Main {
 
             for(int j=0;j<c;j++){
                 int sum = a*i+b*j;
-                if(sum<=c){
+                if(sum<c){
                     answer = Math.max(sum,answer);
                 }
                 if(b*j>sum){
