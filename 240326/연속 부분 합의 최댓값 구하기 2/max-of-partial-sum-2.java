@@ -21,6 +21,9 @@ public class Main {
                 int sum = 0;
                 for(int k=j;k<i+j;k++){
                     sum+=arr[k];
+                    if(sum<answer){
+                        break;
+                    }
                 }
                 answer = Math.max(sum,answer);
             }
