@@ -16,17 +16,17 @@ public class Main {
             arr[i] = Integer.parseInt(inputStrArr[i]);
         }
         int answer = Integer.MIN_VALUE;
-        for(int i=1;i<=n;i++){//연속된 숫자를 몇개로 할지 
-            for(int j=0;j<n-i+1;j++){//시작점
-                int sum = 0;
-                for(int k=j;k<i+j;k++){
-                    sum+=arr[k];
-                    if(sum<answer){
-                        break;
-                    }
-                }
-                answer = Math.max(sum,answer);
+
+        int cursur =0;
+        int sum =0;
+        for(int i=0;i<n;i++){
+
+            sum+=arr[i];
+            answer = Math.max(sum,answer);
+            if(sum<0){
+                sum = 0;
             }
+
         }
 
         System.out.println(answer);
