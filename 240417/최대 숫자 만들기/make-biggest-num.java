@@ -19,8 +19,8 @@ public class Main {
             @Override
             public int compare(String o,String o2){
 
-                int sum1 = Integer.parseInt(o+o2);
-                int sum2 = Integer.parseInt(o2+o);
+                Long sum1 = Long.parseLong(o+o2);
+                Long sum2 = Long.parseLong(o2+o);
                 if(sum1>sum2){
                     return -1;
                 }
