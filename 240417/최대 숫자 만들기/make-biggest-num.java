@@ -30,9 +30,12 @@ public class Main {
             }
         });
 
+        StringBuilder sb = new StringBuilder();
         for(int i=0;i<n;i++){
-            System.out.print(inputStrArr[i]);
+            sb.append(inputStrArr[i]);
         }
+            System.out.print(sb);
+
         // 여기에 코드를 작성해주세요.
 
 
