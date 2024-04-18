@@ -11,25 +11,29 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         List<Integer>bList = new ArrayList<>();
-        List<Integer>aList = new LinkedList<>();
 
         for(int i=0;i<n;i++){
             bList.add(Integer.parseInt(br.readLine()));
         }
-        Collections.sort(bList);
+        Collections.sort(bList,Comparator.reverseOrder());
 
         int cnt = 0;
         int stackCnt = 0;
+        int bCursur = 0;
+        int bValue = bList.get(bCursur);
         for(int i=2*n;i>0;i--){
-
-            if(!bList.contains(i)){
+            if(bValue<i){
                 stackCnt++;
             }
-            else{
+            else if(bValue==i){
                 if(stackCnt>0){
                     stackCnt--;
                     cnt++;
                 }
+                    if(bCursur<bList.size()-1){
+                        bCursur++;
+                        bValue = bList.get(bCursur);
+                    }
             }
         }
         System.out.println(cnt);
