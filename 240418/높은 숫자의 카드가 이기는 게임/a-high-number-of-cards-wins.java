@@ -31,6 +31,7 @@ public class Main {
                 if(bValue<aList.get(aIndex)){
                     aList.remove(aIndex);
                     cnt++;
+                    break;
                 }
             }
         }
