@@ -22,12 +22,12 @@ public class Main {
         }
 
         Collections.sort(list);
-        int min = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
         int listSize = list.size();
 
         for(int i=0;i<list.size()/2;i++){
             int compareMin = list.get(i)+list.get(listSize-i-1);
-            min = Math.min(compareMin,min);
+            min = Math.max(compareMin,min);
         }
         System.out.println(min);
         // 여기에 코드를 작성해주세요.
