@@ -31,7 +31,7 @@ public class Main {
             for(int aIndex=aCursur;aIndex<aList.size();aIndex++){
                 if(bValue<aList.get(aIndex)){
                     // aList.remove(aIndex);
-                    aCursur = aIndex;
+                    aCursur = aIndex+1;
                     cnt++;
                     break;
                 }
