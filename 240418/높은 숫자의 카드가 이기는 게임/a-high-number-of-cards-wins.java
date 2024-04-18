@@ -18,24 +18,17 @@ public class Main {
         }
         Collections.sort(bList);
 
-        for(int i=1;i<=2*n;i++){
-            if(!bList.contains(i)){
-                aList.add(i);
-            }
-        }
-        Collections.sort(aList);
         int cnt = 0;
-        int aCursur = 0;
-        for(int bIndex=0;bIndex<n;bIndex++){
-            int bValue = bList.get(bIndex);
-            for(int aIndex=aCursur;aIndex<aList.size();aIndex++){
-                if(bValue<aList.get(aIndex)){
-                    // aList.remove(aIndex);
-                    aCursur = aIndex+1;
+        int stackCnt = 0;
+        for(int i=2*n;i>0;i--){
+
+            if(!bList.contains(i)){
+                stackCnt++;
+            }
+            else{
+                if(stackCnt>0){
+                    stackCnt--;
                     cnt++;
-                    break;
-                }
-                else{
                 }
             }
         }
