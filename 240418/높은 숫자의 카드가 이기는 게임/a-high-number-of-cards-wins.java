@@ -25,13 +25,17 @@ public class Main {
         }
         Collections.sort(aList);
         int cnt = 0;
+        int aCursur = 0;
         for(int bIndex=0;bIndex<n;bIndex++){
             int bValue = bList.get(bIndex);
-            for(int aIndex=0;aIndex<aList.size();aIndex++){
+            for(int aIndex=aCursur;aIndex<aList.size();aIndex++){
                 if(bValue<aList.get(aIndex)){
-                    aList.remove(aIndex);
+                    // aList.remove(aIndex);
+                    aCursur = aIndex;
                     cnt++;
                     break;
+                }
+                else{
                 }
             }
         }
