@@ -36,7 +36,7 @@ public class Main {
             MinDistance = 1;
         }
         else if(cCase>=3){
-            Math.min(MinDistance,2);
+            MinDistance = Math.min(MinDistance,2);
         }
 
         System.out.println(MinDistance);
