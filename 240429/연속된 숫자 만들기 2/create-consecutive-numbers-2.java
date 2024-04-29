@@ -11,9 +11,16 @@ public class Main {
         int b = Integer.parseInt(StrInputArr[1]);
         int c = Integer.parseInt(StrInputArr[2]);
 
+        
         //1 a가 이동
         int MinDistance = Integer.MAX_VALUE;
         int aCase = Math.abs(b-c);
+        int cCase = Math.abs(a-b);
+        if(aCase==1 && cCase==1){
+            System.out.println(0);
+            return ;
+
+        }
         if(aCase==1){
         }
         else if(aCase ==2){
@@ -22,7 +29,6 @@ public class Main {
         else if(aCase>=3){
             MinDistance = 2;
         }
-        int cCase = Math.abs(a-b);
 
         if(cCase==1){
         }
