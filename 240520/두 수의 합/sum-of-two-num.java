@@ -17,21 +17,23 @@ public class Main {
         for(int i =0;i <n;i++){
             intArr[i] = Long.parseLong(arr[i]);
         }
+        int ans= 0;
 
-        for(int i=0;i<n-1;i++){
-            for(int j = i+1;j<n;j++){
-                Long sum = intArr[i]+intArr[j];
-                // Long sum = Long.valueOf(intArr[i])+Long.valueOf(intArr[j]);
-                map.put(sum,map.getOrDefault(sum,0)+1);
+        for(int i=0;i<n;i++){
+
+            long diff = k - intArr[i];
+            if(map.containsKey(diff)){
+                ans += map.get(diff);
+            }
+
+            if(!map.containsKey(intArr[i])){
+                map.put(intArr[i],1);
+            }
+            else{
+                map.put(intArr[i],map.get(intArr[i])+1);
             }
         }
-
-        System.out.println(map.getOrDefault(k,0));
-
-
-
-
-
+        System.out.print(ans);
         // 여기에 코드를 작성해주세요.
     }
 }
